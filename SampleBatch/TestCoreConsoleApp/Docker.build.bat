@@ -1,0 +1,1 @@
+docker build -t globus000/counter-image -f Dockerfile .

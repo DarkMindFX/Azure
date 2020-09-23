@@ -1,0 +1,1 @@
+docker build -t globus000/samplebatchapi.netcore -f Dockerfile .
