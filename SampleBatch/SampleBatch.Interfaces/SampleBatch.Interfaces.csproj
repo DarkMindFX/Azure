@@ -48,4 +48,7 @@
     <Compile Include="Session.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>nuget install packages.config</PreBuildEvent>
+  </PropertyGroup>
 </Project>

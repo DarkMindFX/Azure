@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SampleBatchApi.Dto;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SampleBatchApi.Dto;
 
 namespace SampleBatcpApiClient
 {

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\SampleBatch.Interfaces.NETCore\SampleBatch.Interfaces.NETCore.csproj" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="dotnet restore" />
+  </Target>
+
 </Project>

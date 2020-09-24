@@ -63,14 +63,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MsgBus.Azure\MsgBus.Azure.csproj">
-      <Project>{164719fa-5c91-4aa8-ab44-a55c49b897eb}</Project>
-      <Name>MsgBus.Azure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SampleBatch.Interfaces\SampleBatch.Interfaces.csproj">
       <Project>{6748171c-3e31-4c99-8d2b-0f293855883a}</Project>
       <Name>SampleBatch.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>nuget install packages.config</PreBuildEvent>
+  </PropertyGroup>
 </Project>

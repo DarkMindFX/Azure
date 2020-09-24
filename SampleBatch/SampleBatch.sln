@@ -7,27 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.SampleBatch", "Test.Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleHeavyCalc", "SampleHeavyCalc\SampleHeavyCalc.csproj", "{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatchApi", "SampleBatchApi\SampleBatchApi.csproj", "{13501701-B3DB-4725-8B1B-E7FE0DE17B58}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.Interfaces", "SampleBatch.Interfaces\SampleBatch.Interfaces.csproj", "{6748171C-3E31-4C99-8D2B-0F293855883A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgBus.Azure", "MsgBus.Azure\MsgBus.Azure.csproj", "{164719FA-5C91-4AA8-AB44-A55C49B897EB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatcpApiClient", "SampleBatcpApiClient\SampleBatcpApiClient.csproj", "{050B4B2C-E0A8-4111-856E-1E3C32927DCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.DTOs", "SampleBatch.DTOs\SampleBatch.DTOs.csproj", "{3E46831F-B939-474F-B725-DC42DB7EA7F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleBatch.DTOs.NETCore", "SampleBatch.DTOs.NETCore\SampleBatch.DTOs.NETCore.csproj", "{4774B7CB-00A4-47DE-8C7A-0B5C6CC788A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCoreConsoleApp", "TestCoreConsoleApp\TestCoreConsoleApp.csproj", "{3D6D1394-4ABF-459B-9330-2F4EEBB46155}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleBatch.Interfaces.NETCore", "SampleBatch.Interfaces.NETCore\SampleBatch.Interfaces.NETCore.csproj", "{022433BE-F296-4E14-AC89-1F047D8513BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.DTOs.NETCore", "SampleBatch.DTOs.NETCore\SampleBatch.DTOs.NETCore.csproj", "{4774B7CB-00A4-47DE-8C7A-0B5C6CC788A1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.Interfaces.NETCore", "SampleBatch.Interfaces.NETCore\SampleBatch.Interfaces.NETCore.csproj", "{022433BE-F296-4E14-AC89-1F047D8513BD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgBus.Azure.NETCore", "MsgBus.Azure.NETCore\MsgBus.Azure.NETCore.csproj", "{4635F405-5FE7-4F0B-911B-63F2515E12A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsgBus.Azure.NETCore", "MsgBus.Azure.NETCore\MsgBus.Azure.NETCore.csproj", "{4635F405-5FE7-4F0B-911B-63F2515E12A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETCore", "NETCore", "{32982D64-957A-41AB-A161-3BEB4376021A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatchApi.NETCore", "SampleBatchApi.NETCore\SampleBatchApi.NETCore.csproj", "{27305620-47E0-4C06-A080-4CB6F1D6142A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleBatchApi.NETCore", "SampleBatchApi.NETCore\SampleBatchApi.NETCore.csproj", "{27305620-47E0-4C06-A080-4CB6F1D6142A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.DTOs", "SampleBatch.DTOs\SampleBatch.DTOs.csproj", "{3E46831F-B939-474F-B725-DC42DB7EA7F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.Interfaces", "SampleBatch.Interfaces\SampleBatch.Interfaces.csproj", "{6748171C-3E31-4C99-8D2B-0F293855883A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,30 +37,10 @@ Global
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13501701-B3DB-4725-8B1B-E7FE0DE17B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13501701-B3DB-4725-8B1B-E7FE0DE17B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13501701-B3DB-4725-8B1B-E7FE0DE17B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13501701-B3DB-4725-8B1B-E7FE0DE17B58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6748171C-3E31-4C99-8D2B-0F293855883A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6748171C-3E31-4C99-8D2B-0F293855883A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{050B4B2C-E0A8-4111-856E-1E3C32927DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{050B4B2C-E0A8-4111-856E-1E3C32927DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050B4B2C-E0A8-4111-856E-1E3C32927DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{050B4B2C-E0A8-4111-856E-1E3C32927DCA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D6D1394-4ABF-459B-9330-2F4EEBB46155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D6D1394-4ABF-459B-9330-2F4EEBB46155}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D6D1394-4ABF-459B-9330-2F4EEBB46155}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D6D1394-4ABF-459B-9330-2F4EEBB46155}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4774B7CB-00A4-47DE-8C7A-0B5C6CC788A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4774B7CB-00A4-47DE-8C7A-0B5C6CC788A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4774B7CB-00A4-47DE-8C7A-0B5C6CC788A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,6 +57,14 @@ Global
 		{27305620-47E0-4C06-A080-4CB6F1D6142A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27305620-47E0-4C06-A080-4CB6F1D6142A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27305620-47E0-4C06-A080-4CB6F1D6142A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E46831F-B939-474F-B725-DC42DB7EA7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6748171C-3E31-4C99-8D2B-0F293855883A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6748171C-3E31-4C99-8D2B-0F293855883A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
