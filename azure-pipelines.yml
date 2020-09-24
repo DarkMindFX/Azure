@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'mcr.microsoft.com/dotnet/core/aspnet:3.1'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
   imageName: 'globus000/samplebatchapi.netcore'
