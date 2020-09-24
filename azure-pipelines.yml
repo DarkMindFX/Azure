@@ -3,6 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
+
 trigger:
 - master
 
@@ -14,6 +16,14 @@ variables:
   repoName: 'Azure'
 
 steps:
+- task: MSBuild@1
+  inputs:
+    solution: 'SampleBatch/SampleBatch.sln'
+    msbuildVersion: 'latest'
+    msbuildArchitecture: 'x86'
+    configuration: 'release'
+    clean: True
+
 - task: Docker@2
   displayName: Build an image
   inputs:
