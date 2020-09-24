@@ -28,9 +28,25 @@ steps:
     configuration: 'release'
     clean: True
 
+steps:
 - task: Docker@2
-  displayName: Build an image
+  displayName: Login to ACR
+  inputs:
+    command: login
+    containerRegistry: SampleBatchRegistry
+
+- task: Docker@2
+  displayName: Build and and push image
   inputs:
     repository: $(repoName)
-    command: build
+    command: buildAndPush
     Dockerfile: SampleBatch/SampleBatchApi.NETCore/Dockerfile
+
+
+- task: Docker@2
+  displayName: Logout of ACR
+  inputs:
+    command: logout
+    containerRegistry: SampleBatchRegistry
+
+
