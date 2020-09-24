@@ -30,12 +30,12 @@ steps:
 
 
 - task: Docker@2
-  displayName: Build and and push image
   inputs:
-    repository: $(repoName)
-    command: buildAndPush
-    Dockerfile: SampleBatch/SampleBatchApi.NETCore/Dockerfile
-    containerRegistry: devopsmanual-acr
+    containerRegistry: 'DockerHubConnection'
+    repository: 'globus000/samplebatchapi.netcore'
+    command: 'buildAndPush'
+    Dockerfile: 'SampleBatch/SampleBatchApi.NETCore/Dockerfile'
+    tags: 
 
 
 
