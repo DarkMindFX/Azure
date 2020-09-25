@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.SampleBatch", "Test.SampleBatch\Test.SampleBatch.csproj", "{0D82C398-FFEF-4005-8691-69080FA17007}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleHeavyCalc", "SampleHeavyCalc\SampleHeavyCalc.csproj", "{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatcpApiClient", "SampleBatcpApiClient\SampleBatcpApiClient.csproj", "{050B4B2C-E0A8-4111-856E-1E3C32927DCA}"
@@ -23,16 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.DTOs", "SampleB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.Interfaces", "SampleBatch.Interfaces\SampleBatch.Interfaces.csproj", "{6748171C-3E31-4C99-8D2B-0F293855883A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MsgBus.Azure.NETCore", "Tests\Test.MsgBus.Azure.NETCore\Test.MsgBus.Azure.NETCore.csproj", "{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0D82C398-FFEF-4005-8691-69080FA17007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D82C398-FFEF-4005-8691-69080FA17007}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D82C398-FFEF-4005-8691-69080FA17007}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D82C398-FFEF-4005-8691-69080FA17007}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8C156D-7A93-41D4-A7BC-B798DF24D1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{6748171C-3E31-4C99-8D2B-0F293855883A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6748171C-3E31-4C99-8D2B-0F293855883A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
