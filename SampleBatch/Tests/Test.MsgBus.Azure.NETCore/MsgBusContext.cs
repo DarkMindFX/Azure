@@ -5,6 +5,8 @@ using NUnit.Framework;
 using SampleBatch.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Test.MsgBus.Azure.NETCore
@@ -58,15 +60,61 @@ namespace Test.MsgBus.Azure.NETCore
         }
 
         [Test]
-        public void Init_Fail_InvalidParams()
+        public void Init_Fail_InvalidAccount()
         {
+            try
+            {
+                IConfiguration config = GetConfiguration();
+                var msgBusConfig = config.GetSection("MsgBusConfig_InvalidAccount").Get<MsgBusConfig>();
+
+                IMsgBusContextParams busParams = GetContextParams();
+                busParams.Parameters["MessageQueue"] = msgBusConfig.MessageQueue;
+                busParams.Parameters["StorageAccountKey"] = msgBusConfig.StorageAccountKey;
+                busParams.Parameters["StorageAccountName"] = msgBusConfig.StorageAccountName;
+
+                IMsgBusContext ctx = new MsgBusContext();
+                ctx.Init(busParams);
+
+                Assert.Fail("Initialized with invalid Account");
+            }
+            catch(UriFormatException exUriFormat)
+            {
+                Assert.Pass(); // OK - exception expected
+            }
+
+        }
+
+        [Test]
+        public void Init_Fail_InvalidKey()
+        {
+            try
+            {
+                IConfiguration config = GetConfiguration();
+                var msgBusConfig = config.GetSection("MsgBusConfig_InvalidKey").Get<MsgBusConfig>();
+
+                IMsgBusContextParams busParams = GetContextParams();
+                busParams.Parameters["MessageQueue"] = msgBusConfig.MessageQueue;
+                busParams.Parameters["StorageAccountKey"] = msgBusConfig.StorageAccountKey;
+                busParams.Parameters["StorageAccountName"] = msgBusConfig.StorageAccountName;
+
+                IMsgBusContext ctx = new MsgBusContext();
+                ctx.Init(busParams);
+
+                Assert.Fail("Initialized with invalid Key");
+            }
+            catch (FormatException exFormat)
+            {
+                Assert.Pass(); // OK - exception expected
+            }
 
         }
 
         private IConfiguration GetConfiguration()
         {
+            var codebase = Assembly.GetExecutingAssembly().GetName().CodeBase;
+            var path = Path.Combine( Path.GetDirectoryName(codebase), "appconfig.json").Substring(6);
             IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile(path, optional: false, reloadOnChange: true)
                 .Build();
 
             return config;
