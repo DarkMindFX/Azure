@@ -1,10 +1,11 @@
+using Microsoft.Extensions.Configuration;
 using MsgBus.Azure;
 using NUnit.Framework;
 using SampleBatch.Interfaces;
 
 namespace Test.MsgBus.Azure.NETCore
 {
-    public class MsgBusContextParams
+    public class MsgBusContextParamsTest
     {
         [SetUp]
         public void Setup()
@@ -24,6 +25,8 @@ namespace Test.MsgBus.Azure.NETCore
             Assert.IsTrue(ctxParams.Parameters.ContainsKey("StorageAccountKey"));
             Assert.IsTrue(ctxParams.Parameters.ContainsKey("MessageQueue"));
         }
+
+        
 
         private IMsgBusContextParams GetContextParams()
         {

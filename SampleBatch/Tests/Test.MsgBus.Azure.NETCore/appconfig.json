@@ -1,0 +1,20 @@
+{
+  "MsgBusConfig": {
+    "StorageAccountName": "globus000samplebatch",
+    "StorageAccountKey": "DcByuneYIlHJo4auLRFD38aWwcsW6fljsxkezPb6B516viBqQqOwlQFvSArWQ6jwIB6LRmyyM8zjCP0tHHTmvQ==",
+    "MessageQueue": "sample-batch-queue"
+  },
+
+  "MsgBusConfig_InvalidAccount": {
+    "StorageAccountName": "#invalid_account#",
+    "StorageAccountKey": "DcByuneYIlHJo4auLRFD38aWwcsW6fljsxkezPb6B516viBqQqOwlQFvSArWQ6jwIB6LRmyyM8zjCP0tHHTmvQ==",
+    "MessageQueue": "sample-batch-queue"
+  },
+
+  "MsgBusConfig_InvalidKey": {
+    "StorageAccountName": "globus000samplebatch",
+    "StorageAccountKey": "@invalid_key@6viBqQqOwlQFvSArWQ6jwIB6LRmyyM8zjCP0tHHTmvQ==",
+    "MessageQueue": "sample-batch-queue"
+  }
+
+}
