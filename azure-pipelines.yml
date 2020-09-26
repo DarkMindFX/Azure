@@ -34,6 +34,14 @@ steps:
     command: test
     projects: "**/Tests/Test.MsgBus.Azure.NETCore/Test.MsgBus.Azure.NETCore.csproj"
     arguments: '--configuration $(buildConfiguration)'
+
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureContainerRegistry: '{"loginServer":"samplebatchregistry.azurecr.io", "id" : "/subscriptions/04534d3c-b433-4f7f-ac5d-893d2a2b829a/resourceGroups/SampleBatch00/providers/Microsoft.ContainerRegistry/registries/SampleBatchRegistry"}'
+    dockerComposeFile: '**/SampleBatch/SampleBatchApi.NETCore/docker-compose.yml'
+    action: 'Run a Docker Compose command'
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
