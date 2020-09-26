@@ -112,9 +112,9 @@ namespace Test.MsgBus.Azure.NETCore
         private IConfiguration GetConfiguration()
         {
             var codebase = Assembly.GetExecutingAssembly().GetName().CodeBase;
-            var path = Path.Combine( Path.GetDirectoryName(codebase), "appconfig.json").Substring(6);
+  
             IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile(path, optional: false, reloadOnChange: true)
+                .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true)
                 .Build();
 
             return config;
