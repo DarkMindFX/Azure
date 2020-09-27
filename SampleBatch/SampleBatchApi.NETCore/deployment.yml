@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: globus000-samplebatchapi-lb
+  name: globus000-samplebatchapi-lb
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: globus000-samplebatchapi-lb
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: globus000-samplebatchapi-lb
+    spec:
+      containers:
+      - image: globus000/samplebatchapi.netcore:latest
+        name: samplebatchapi-netcore
+        ports:
+        - containerPort: 8080
