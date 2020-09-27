@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/name: globus000-samplebatchapi-lb
   name: globus000-samplebatchapi-lb
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: globus000-samplebatchapi-lb
@@ -19,3 +19,15 @@ spec:
         name: samplebatchapi-netcore
         ports:
         - containerPort: 8080
+        
+        
+apiVersion: v1
+kind: Service
+metadata:
+  name: globus000-samplebatchapi-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: globus000-samplebatchapi-lb
