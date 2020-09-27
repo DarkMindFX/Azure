@@ -35,14 +35,6 @@ steps:
     projects: "**/Tests/Test.MsgBus.Azure.NETCore/Test.MsgBus.Azure.NETCore.csproj"
     arguments: '--configuration $(buildConfiguration)'
 
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
-    azureContainerRegistry: '{"loginServer":"samplebatchregistry.azurecr.io", "id" : "/subscriptions/04534d3c-b433-4f7f-ac5d-893d2a2b829a/resourceGroups/SampleBatch00/providers/Microsoft.ContainerRegistry/registries/SampleBatchRegistry"}'
-    dockerComposeFile: '**/SampleBatch/SampleBatchApi.NETCore/docker-compose.yml'
-    action: 'Run a Docker Compose command'
-    dockerComposeCommand: 'build'
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
@@ -52,6 +44,44 @@ steps:
     tags: 
 
 
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureContainerRegistry: '{"loginServer":"samplebatchregistry.azurecr.io", "id" : "/subscriptions/04534d3c-b433-4f7f-ac5d-893d2a2b829a/resourceGroups/SampleBatch00/providers/Microsoft.ContainerRegistry/registries/SampleBatchRegistry"}'
+    dockerComposeFile: '**/SampleBatch/SampleBatchApi.NETCore/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build'
 
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureContainerRegistry: '{"loginServer":"samplebatchregistry.azurecr.io", "id" : "/subscriptions/04534d3c-b433-4f7f-ac5d-893d2a2b829a/resourceGroups/SampleBatch00/providers/Microsoft.ContainerRegistry/registries/SampleBatchRegistry"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Push services'
+   
 
+#- task: Kubernetes@1
+#  inputs:
+#    connectionType: 'Azure Resource Manager'
+#    azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+#    azureResourceGroup: 'SampleBatch00'
+#    kubernetesCluster: 'sample-batch-api-cluster'
+#    command: 'apply'
+#    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
+#    secretType: 'dockerRegistry'
+#    containerRegistryType: 'Azure Container Registry'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureResourceGroup: 'SampleBatch00'
+    kubernetesCluster: 'sample-batch-api-cluster'
+    command: 'apply'
+    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Container Registry'
+    dockerRegistryEndpoint: 'DockerHubConnection'
 
