@@ -56,9 +56,11 @@ steps:
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
     azureContainerRegistry: '{"loginServer":"samplebatchregistry.azurecr.io", "id" : "/subscriptions/04534d3c-b433-4f7f-ac5d-893d2a2b829a/resourceGroups/SampleBatch00/providers/Microsoft.ContainerRegistry/registries/SampleBatchRegistry"}'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Push services'
+   
 
 #- task: Kubernetes@1
 #  inputs:
