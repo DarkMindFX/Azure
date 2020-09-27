@@ -61,7 +61,7 @@ steps:
     azureResourceGroup: 'SampleBatch00'
     kubernetesCluster: 'sample-batch-api-cluster'
     command: 'apply'
-    arguments: '-f  "**/SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
+    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
 
