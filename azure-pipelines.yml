@@ -74,7 +74,8 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    command: 
+    command: 'apply'
+    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'DockerHubConnection'
