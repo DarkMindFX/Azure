@@ -21,13 +21,3 @@ spec:
         - containerPort: 8080
         
         
-apiVersion: v1
-kind: Service
-metadata:
-  name: globus000-samplebatchapi-lb
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: globus000-samplebatchapi-lb
