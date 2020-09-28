@@ -62,16 +62,16 @@ steps:
     action: 'Push services'
    
 
-#- task: Kubernetes@1
-#  inputs:
-#    connectionType: 'Azure Resource Manager'
-#    azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
-#    azureResourceGroup: 'SampleBatch00'
-#    kubernetesCluster: 'sample-batch-api-cluster'
-#    command: 'apply'
-#    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
-#    secretType: 'dockerRegistry'
-#    containerRegistryType: 'Azure Container Registry'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureResourceGroup: 'SampleBatch00'
+    kubernetesCluster: 'sample-batch-api-cluster'
+    command: 'apply'
+    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
 
 
 
