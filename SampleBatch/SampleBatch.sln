@@ -21,7 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.DTOs", "SampleB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBatch.Interfaces", "SampleBatch.Interfaces\SampleBatch.Interfaces.csproj", "{6748171C-3E31-4C99-8D2B-0F293855883A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MsgBus.Azure.NETCore", "Tests\Test.MsgBus.Azure.NETCore\Test.MsgBus.Azure.NETCore.csproj", "{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.MsgBus.Azure.NETCore", "Tests\Test.MsgBus.Azure.NETCore\Test.MsgBus.Azure.NETCore.csproj", "{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgBus.Azure", "MsgBus.Azure\MsgBus.Azure.csproj", "{164719FA-5C91-4AA8-AB44-A55C49B897EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5CE0C8E-EB09-4CF4-86C3-D203846B950C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164719FA-5C91-4AA8-AB44-A55C49B897EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
