@@ -18,10 +18,12 @@ variables:
 
 steps:
 - task: NuGetCommand@2
+  name: "GetSources" 
   inputs:
     command: restore
     restoreSolution: "**/*.sln"
 - task: MSBuild@1
+  name: "BuildSolution"
   inputs:
     solution: 'SampleBatch/SampleBatch.sln'
     msbuildVersion: 'latest'
@@ -30,12 +32,14 @@ steps:
     clean: True
 
 - task: DotNetCoreCLI@2
+  name: "RunUnitTests"
   inputs:
     command: test
     projects: "**/Tests/Test.MsgBus.Azure.NETCore/Test.MsgBus.Azure.NETCore.csproj"
     arguments: '--configuration $(buildConfiguration)'
 
 - task: Docker@2
+  name: "BuildAndPush2DockerHub"
   inputs:
     containerRegistry: 'DockerHubConnection'
     repository: 'globus000/samplebatchapi.netcore'
@@ -45,6 +49,7 @@ steps:
 
 
 - task: DockerCompose@0
+  name: "Build4ACR"
   inputs:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
@@ -54,6 +59,7 @@ steps:
     dockerComposeCommand: 'build'
 
 - task: DockerCompose@0
+  name: "Push2ACR"
   inputs:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Free Trial Subscription(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
@@ -63,6 +69,7 @@ steps:
    
 
 - task: Kubernetes@1
+  name: "AKSDeployment"
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
@@ -70,6 +77,20 @@ steps:
     kubernetesCluster: 'sample-batch-api-cluster'
     command: 'apply'
     arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/deployment.yml"'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
+    
+
+
+- task: Kubernetes@1
+  name: "AKSService"
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'Free Trial Subscription(2)(04534d3c-b433-4f7f-ac5d-893d2a2b829a)'
+    azureResourceGroup: 'SampleBatch00'
+    kubernetesCluster: 'sample-batch-api-cluster'
+    command: 'apply'
+    arguments: '-f  "SampleBatch/SampleBatchApi.NETCore/service.yml"'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
 
