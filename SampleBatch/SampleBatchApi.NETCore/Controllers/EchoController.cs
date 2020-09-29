@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SampleBatchApi.Dto;
-
+using System;
 using System.Net;
 using System.Net.Http;
 
@@ -32,7 +32,7 @@ namespace SampleBatchApi.Controllers
                 Message = message
             };
 
-            logger.LogInformation($"Echo: {message} processed");
+            logger.LogInformation($"Echo: '{message}' processed");
             
             return Echo(request);
         }
@@ -43,10 +43,11 @@ namespace SampleBatchApi.Controllers
         {
             EchoResponse echoResp = new EchoResponse()
             {
-                Reponse = request.Message
+                Reponse = request.Message,
+                Processed = DateTime.Now
             };
 
-            logger.LogInformation($"Echo: {request.Message} processed");
+            logger.LogInformation($"Echo: '{request.Message}' processed");
 
             return Ok(JsonConvert.SerializeObject(echoResp, Formatting.Indented));
 
