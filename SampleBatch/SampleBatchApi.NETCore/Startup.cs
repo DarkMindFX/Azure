@@ -25,9 +25,17 @@ namespace SampleBatchApi.NETCore
             set;
         }
 
+        public static ILogger Logger
+        {
+            get;
+            set;
+        }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           
+            //Logger.LogInformation("API service started");
         }
 
         public IConfiguration Configuration { get; }
@@ -46,7 +54,9 @@ namespace SampleBatchApi.NETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-   
+            
+
+
             AggregateCatalog catalog = new AggregateCatalog();
             DirectoryCatalog directoryCatalog = new DirectoryCatalog(AssemblyDirectory);
             catalog.Catalogs.Add(directoryCatalog);
@@ -55,6 +65,9 @@ namespace SampleBatchApi.NETCore
             CompositionContainer.ComposeParts(this);
 
             services.AddControllers();
+            services.AddApplicationInsightsTelemetry();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

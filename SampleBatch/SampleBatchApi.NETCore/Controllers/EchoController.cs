@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SampleBatchApi.Dto;
 
@@ -13,9 +14,12 @@ namespace SampleBatchApi.Controllers
     public class EchoController : ControllerBase
     {
         private IConfiguration config;
-        public EchoController(IConfiguration config)
+        private readonly ILogger logger;
+
+        public EchoController(IConfiguration config, ILogger<EchoController> logger)
         {
             this.config = config;
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -27,6 +31,8 @@ namespace SampleBatchApi.Controllers
             {
                 Message = message
             };
+
+            logger.LogInformation($"Echo: {message} processed");
             
             return Echo(request);
         }
@@ -40,7 +46,8 @@ namespace SampleBatchApi.Controllers
                 Reponse = request.Message
             };
 
- 
+            logger.LogInformation($"Echo: {request.Message} processed");
+
             return Ok(JsonConvert.SerializeObject(echoResp, Formatting.Indented));
 
         }

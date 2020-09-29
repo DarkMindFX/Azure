@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SampleBatch.Interfaces;
 using SampleBatchApi.Dto;
@@ -20,11 +21,13 @@ namespace SampleBatchApi.Controllers
     {
         private ISessionContext sessionContext = null;
         private IConfiguration config = null;
+        private readonly ILogger logger;
 
-        public SessionController(IConfiguration config)
+        public SessionController(IConfiguration config, ILogger<SessionController> logger)
         {
             this.config = config;
             sessionContext = Startup.CompositionContainer.GetExportedValue<ISessionContext>("Redis");
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -35,10 +38,12 @@ namespace SampleBatchApi.Controllers
             Session session = sessionContext.FindSession(sessionid);
             if (session == null)
             {
+                logger.LogInformation($"Session Not Found: {sessionid}");
                 return NotFound();
             }
             else
             {
+                logger.LogInformation($"Session Found OK: {sessionid}");
                 return Ok(JsonConvert.SerializeObject(session, Formatting.Indented));
             }
 
@@ -77,10 +82,13 @@ namespace SampleBatchApi.Controllers
                     SessionId = newSessionId
                 };
 
+                logger.LogInformation($"Session opened OK: {newSessionId}");
+
                 response = Created("api/v1/session/" + newSessionId, JsonConvert.SerializeObject(openResp));
             }
             else
             {
+                logger.LogWarning($"Session opened failed (sessionContext.RegisterSession): {newSessionId}");
                 response = StatusCode((int)HttpStatusCode.InternalServerError);
             }
 
@@ -98,15 +106,18 @@ namespace SampleBatchApi.Controllers
             {
                 if (sessionContext.CloseSession(sessionid))
                 {
+                    logger.LogInformation($"Session closed OK: {sessionid}");
                     response = Ok();
                 }
                 else
                 {
+                    logger.LogInformation($"Session closed Failed: {sessionid}");
                     response = StatusCode((int)HttpStatusCode.PreconditionFailed);
                 }
             }
             else
             {
+                logger.LogInformation($"CloseSession: Session Not Found: {sessionid}");
                 response = StatusCode((int)HttpStatusCode.NotFound);
             }
 
