@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SampleBatch.DTOs.NETCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SampleBatchApi.Dto
         public string Message { get; set; }
     }
 
-    public class EchoResponse
+    public class EchoResponse : BaseResponse
     {
         [JsonProperty(PropertyName = "response")]
         public string Reponse { get; set; }

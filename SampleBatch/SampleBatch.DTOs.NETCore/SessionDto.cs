@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SampleBatch.DTOs.NETCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace SampleBatchApi.Dto
 
     }
 
-    public class OpenSessionResponse
+    public class OpenSessionResponse : BaseResponse
     {
         [JsonProperty(PropertyName = "session_id")]
         public string SessionId { get; set; }

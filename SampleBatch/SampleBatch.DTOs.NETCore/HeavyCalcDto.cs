@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SampleBatch.DTOs.NETCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace SampleBatchApi.Dto
         }
     }
 
-    public class StartHeavyCalcResponse
+    public class StartHeavyCalcResponse : BaseResponse
     {
         [JsonProperty(PropertyName = "time_started")]
         public DateTime StartedDt
