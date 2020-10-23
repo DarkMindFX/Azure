@@ -17,5 +17,8 @@ namespace SampleBatchApi.Dto
     {
         [JsonProperty(PropertyName = "response")]
         public string Reponse { get; set; }
+
+        [JsonProperty(PropertyName = "processed")]
+        public DateTime Processed { get; set; }
     }
 }

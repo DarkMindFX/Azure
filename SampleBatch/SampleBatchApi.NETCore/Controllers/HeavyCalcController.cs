@@ -20,11 +20,13 @@ namespace SampleBatchApi.Controllers
     {
         IMsgBusContext ctxMsgBus = null;
         IConfiguration config = null;
+        private readonly ILogger logger = null;
 
-        public HeavyCalcController(IConfiguration config)
+        public HeavyCalcController(IConfiguration config, ILogger<EchoController> logger)
         {
             this.config = config;
             ctxMsgBus = prepareMsgBusConext();
+            this.logger = logger;
             
         }
 
@@ -34,13 +36,18 @@ namespace SampleBatchApi.Controllers
         {
             IActionResult response = null;
 
+            logger.LogInformation($"Call to heavycalc for {request.FileName}");
+
             validateStrParam("sessionid", request.SessionId);
             validateStrParam("filename", request.FileName);
 
             if(!isValidSession(request.SessionId))
             {
+                logger.LogError($"Invalid session tocken {request.SessionId}");
                 throw new ArgumentException(string.Format("Invalid session toekn: {0}", request.SessionId));
             }
+
+            logger.LogInformation($"Sending message for {request.FileName}");
 
             sendStartMessage(request.FileName);
 
